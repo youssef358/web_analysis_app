@@ -2,6 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import PlainTextResponse
+from fastapi.staticfiles import StaticFiles
 from src.config.settings import get_settings
 from src.logger.logger import get_logger
 from src.routers import router_generator
@@ -23,6 +24,7 @@ ascii_art = """
 app = FastAPI(
     title="AI Report Generator API App",
 )
+app.mount("/outputs", StaticFiles(directory="outputs"), name="outputs")
 
 # Add CORS middleware
 app.add_middleware(

@@ -41,8 +41,8 @@ async def agenerate_report(url: str):
     )
 
     crew_output = crew.kickoff()
-    os.makedirs("outputs", mode=0o777, exist_ok=True)
-    path_prefix = r"outputs/"
+    path_prefix = os.path.join(os.getcwd(), "outputs/")
+    os.makedirs(path_prefix, mode=0o777, exist_ok=True)
 
     frontend_input_path = "frontend_report.md"
     frontend_output_path = path_prefix + frontend_input_path[:-3] + ".pdf"
