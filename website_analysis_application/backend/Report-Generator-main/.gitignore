@@ -1,0 +1,9 @@
+/__pycache__
+.env
+enhanced_report.pdf
+*.tex
+/tsyp
+*.pdf
+*.html
+/venv/
+**/__pycache__/
